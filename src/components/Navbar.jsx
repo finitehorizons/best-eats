@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import {
     AiOutlineClose,
@@ -13,7 +14,7 @@ import { MdFavorite, MdHelp } from "react-icons/md";
 
 const Navbar = () => {
     const [nav, setNav] = useState(false);
-    const [option, setOption] = useState(false);
+    const [option, setOption] = useState("Delivery");
 
     const toggleOption = () => {
         setOption((prevOption) =>
@@ -23,7 +24,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="max-w-[1640px] mx-auto flex justify-between p-4">
+            <div className="max-w-[1640px] mx-auto flex justify-between p-4 overflow-hidden">
                 <div className="flex items-center">
                     {/* Left */}
                     <div className="cursor-pointer">
@@ -37,7 +38,7 @@ const Navbar = () => {
                         <p
                             className={`p-2 ${
                                 option === "Delivery"
-                                    ? "bg-black text-white p-2 rounded-full"
+                                    ? "bg-black text-white p-2 rounded-full duration-300"
                                     : ""
                             }`}
                             onClick={toggleOption}>
@@ -46,7 +47,7 @@ const Navbar = () => {
                         <p
                             className={`p-2 ${
                                 option === "Pickup"
-                                    ? "bg-black text-white rounded-full"
+                                    ? "bg-black text-white rounded-full duration-300"
                                     : ""
                             }`}
                             onClick={toggleOption}>
@@ -64,9 +65,11 @@ const Navbar = () => {
                     />
                 </div>
                 {/* Cart */}
-                <button className="bg-black text-white py-2 hidden md:flex items-center rounded-full hover:text-orange-500 hover:bg-white hover:border-orange-500">
-                    <BsCartFill size={20} className="mr-2" /> Cart
-                </button>
+                <Link to="/checkout">
+                    <button className="bg-black text-white py-2 hidden md:flex items-center rounded-full hover:bg-orange-500 hover:border-orange-500 font-bold" >
+                        <BsCartFill size={20} className="mr-2" /> Cart
+                    </button>
+                </Link>
                 {/* Mobile Menu */}
                 {/* Overlay */}
                 {nav ? (
@@ -87,18 +90,22 @@ const Navbar = () => {
                         className=" sm:block absolute top-4 right-4 cursor-pointer"
                         onClick={() => setNav(!nav)}
                     />
-                    <h2 className="text-2xl p-4 ">
-                        Best <span className="font-bold">Eats</span>
-                    </h2>
+                    <Link to="/">
+                        <h2 className="text-2xl p-4 hover:text-orange-600">
+                            Best <span className="font-bold">Eats</span>
+                        </h2>
+                    </Link>
                     <nav>
                         <ul>
-                            <li className="text-xl py-4 flex cursor-pointer hover:text-orange-600">
-                                <TbTruckDelivery
-                                    size={25}
-                                    className="mr-4 ml-2"
-                                />
-                                Orders
-                            </li>
+                            <Link to="/checkout">
+                                <li className="text-xl py-4 flex cursor-pointer hover:text-orange-600">
+                                    <TbTruckDelivery
+                                        size={25}
+                                        className="mr-4 ml-2"
+                                    />
+                                    Cart
+                                </li>
+                            </Link>
                             <li className="text-xl py-4 flex cursor-pointer hover:text-orange-600">
                                 <MdFavorite size={25} className="mr-4 ml-2" />
                                 Favorites

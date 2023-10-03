@@ -1,8 +1,16 @@
 import Hero from "./components/Hero";
-import Navbar from "./components/Navbar";
+
 import ProductCards from "./components/ProductCards";
 import FoodCard from "./components/FoodCard";
 import Category from "./components/Category";
+import Layout from "./components/Layout";
+
+import Promos from "./routes/Promos";
+import Orders from "./routes/Orders";
+import Wallet from "./routes/Wallet";
+import Invite from "./routes/Invite";
+import Checkout from "./routes/Checkout";
+import Favorites from "./routes/Favorites";
 
 import { Routes, Route, Outlet } from "react-router-dom";
 
@@ -13,16 +21,69 @@ function App() {
                 <Route
                     path="/"
                     index
+                    exact
                     element={
                         <>
-                            <Navbar />
-                            <Hero />
-                            <ProductCards />
-                            <FoodCard />
-                            <Category />
+                            <Layout>
+                                <Hero />
+                                <ProductCards />
+                                <FoodCard />
+                                <Category />
+                            </Layout>
                         </>
                     }></Route>
-                <Route path="/orders" element={<Navbar />}></Route>
+                <Route
+                    path="/orders"
+                    element={
+                        <>
+                            <Layout>
+                                <Orders />
+                            </Layout>
+                        </>
+                    }></Route>
+                <Route
+                    path="/wallet"
+                    element={
+                        <>
+                            <Layout>
+                                <Wallet />
+                            </Layout>
+                        </>
+                    }></Route>
+                <Route
+                    path="/invite"
+                    element={
+                        <>
+                            <Layout>
+                                <Invite />
+                            </Layout>
+                        </>
+                    }></Route>
+                <Route
+                    path="/favorites"
+                    element={
+                        <>
+                            <Layout>
+                                <Favorites />
+                            </Layout>
+                        </>
+                    }></Route>
+                <Route
+                    path="/checkout"
+                    element={
+                        <>
+                            <Layout>
+                                <Checkout />
+                            </Layout>
+                        </>
+                    }></Route>
+                <Route
+                    path="/promos"
+                    element={
+                        <Layout>
+                            <Promos />
+                        </Layout>
+                    }></Route>
             </Routes>
             <Outlet />
         </>
