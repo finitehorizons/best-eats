@@ -19,7 +19,7 @@ function App() {
         <>
             <Routes>
                 <Route
-                    path="/"
+                    path='/'
                     index
                     exact
                     element={
@@ -33,7 +33,7 @@ function App() {
                         </>
                     }></Route>
                 <Route
-                    path="/orders"
+                    path='/orders'
                     element={
                         <>
                             <Layout>
@@ -42,7 +42,7 @@ function App() {
                         </>
                     }></Route>
                 <Route
-                    path="/wallet"
+                    path='/wallet'
                     element={
                         <>
                             <Layout>
@@ -51,7 +51,7 @@ function App() {
                         </>
                     }></Route>
                 <Route
-                    path="/invite"
+                    path='/invite'
                     element={
                         <>
                             <Layout>
@@ -60,7 +60,7 @@ function App() {
                         </>
                     }></Route>
                 <Route
-                    path="/favorites"
+                    path='/favorites'
                     element={
                         <>
                             <Layout>
@@ -69,7 +69,7 @@ function App() {
                         </>
                     }></Route>
                 <Route
-                    path="/checkout"
+                    path='/checkout'
                     element={
                         <>
                             <Layout>
@@ -78,7 +78,7 @@ function App() {
                         </>
                     }></Route>
                 <Route
-                    path="/promos"
+                    path='/promos'
                     element={
                         <Layout>
                             <Promos />
